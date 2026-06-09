@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Resume Copilot</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+    <div class="logo">AI Resume Copilot</div>
+    <div class="file">{{ filename }}</div>
+</header>
+
+<!-- MAIN GRID -->
+<main class="layout">
+
+    <!-- LEFT -->
+    <section class="left">
+
+        <div class="card score-card fade-in">
+            <h3>Resume Score</h3>
+            <div class="score">{{ score }}%</div>
+            <p class="status">{{ status }}</p>
+
+            <div class="progress">
+                <div class="fill" style="width: {{ score }}%;"></div>
+            </div>
+        </div>
+
+        <div class="card fade-in delay-1">
+            <h3>Skills Map</h3>
+            <canvas id="radarChart"></canvas>
+        </div>
+
+    </section>
+
+    <!-- RIGHT -->
+    <section class="right">
+
+        <div class="card highlight fade-in">
+            <h3>🧠 AI Intelligence</h3>
+
+            <div class="tag good">✔ Strong Python foundation</div>
+            <div class="tag warn">⚠ ML skills missing</div>
+            <div class="tag warn">⚠ Backend experience low</div>
+            <div class="tag action">🚀 Build deployed projects</div>
+        </div>
+
+        <div class="card fade-in delay-1">
+            <h3>Missing Keywords</h3>
+
+            {% if missing_keywords %}
+            <ul>
+                {% for word in missing_keywords %}
+                    <li>{{ word }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>All keywords matched 🎉</p>
+            {% endif %}
+        </div>
+
+        <div class="card fade-in delay-2">
+            <h3>AI Suggestions</h3>
+
+            {% if suggestions %}
+            <ul>
+                {% for item in suggestions %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FULL WIDTH -->
+<section class="full fade-in delay-2">
+    <div class="card">
+        <h3>Extracted Resume</h3>
+        <pre>{{ resume_text }}</pre>
+    </div>
+
+    <div class="card">
+        <h3>Job Description</h3>
+        <pre>{{ job_description }}</pre>
+    </div>
+</section>
+
+<!-- CHAT BUTTON -->
+<button class="ai-btn" onclick="openChat()">🤖</button>
+
+<!-- CHAT -->
+<div id="chatModal" class="chat-modal">
+    <div class="chat-box">
+
+        <div class="chat-header">
+            AI Resume Assistant
+            <button onclick="closeChat()">✖</button>
+        </div>
+
+        <div id="chatWindow" class="chat-window"></div>
+
+        <div class="chat-input">
+            <input id="userInput" placeholder="Ask about your resume...">
+            <button onclick="sendMsg()">Send</button>
+        </div>
+
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html> 
