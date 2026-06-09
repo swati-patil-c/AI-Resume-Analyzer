@@ -1,53 +1,169 @@
-body{
-    margin:0;
-    padding:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
+/* =========================
+   SAAS DESIGN SYSTEM
+========================= */
+
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --border: #e5e7eb;
 }
 
-.container{
-    width:60%;
-    margin:50px auto;
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", sans-serif;
 }
 
-h1{
-    text-align:center;
-    color:#333;
+/* =========================
+   PAGE BACKGROUND
+========================= */
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-p{
-    text-align:center;
-    color:gray;
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: 40px;
+    padding: 40px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
-label{
-    font-weight:bold;
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-input[type=file],textarea{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    margin-bottom:20px;
-    border-radius:8px;
-    border:1px solid #ccc;
+p {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 30px;
+    font-size: 14px;
 }
 
-button{
-    width:100%;
-    padding:15px;
-    border:none;
-    background:#007bff;
-    color:white;
-    font-size:18px;
-    border-radius:8px;
-    cursor:pointer;
+/* =========================
+   FORM STYLING
+========================= */
+
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-button:hover{
-    background:#0056b3;
+/* LABEL */
+label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+/* INPUT FILE */
+input[type="file"] {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fafafa;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+input[type="file"]:hover {
+    border-color: var(--primary);
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    min-height: 180px;
+
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-size: 14px;
+    resize: none;
+
+    background: #fafafa;
+    transition: 0.2s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+}
+
+/* =========================
+   BUTTON (SaaS CTA)
+========================= */
+
+button {
+    margin-top: 25px;
+    padding: 14px;
+
+    background: var(--primary);
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(79,70,229,0.2);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
 }

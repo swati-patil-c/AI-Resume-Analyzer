@@ -1,0 +1,59 @@
+
+/* ===== HERO CARD (TOP SCORE SECTION) ===== */
+.hero-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+
+.hero-left {
+    flex: 1;
+}
+
+.hero-right {
+    flex: 1;
+    padding-left: 20px;
+    border-left: 1px solid #e5e7eb;
+}
+
+.hero-right p {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-right ul {
+    margin-left: 18px;
+    color: #6b7280;
+}
+
+/* ===== SCORE TEXT IMPROVE ===== */
+.status {
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* ===== HIGHLIGHT AI CARD ===== */
+.highlight-card {
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    border: 1px solid #dbeafe;
+}
+
+.highlight-card h2 {
+    color: #4f46e5;
+}
+
+/* ===== GRID IMPROVEMENT ===== */
+.grid {
+    margin-top: 20px;
+}
+
+/* ===== CARD SPACING FIX ===== */
+.card {
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}

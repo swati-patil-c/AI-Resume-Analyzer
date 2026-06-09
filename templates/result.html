@@ -1,93 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Analysis Result</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Copilot</title>
 
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background:#f5f5f5;
-            padding:40px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        .container{
-            max-width:900px;
-            margin:auto;
-            background:white;
-            padding:30px;
-            border-radius:10px;
-            box-shadow:0px 0px 10px lightgray;
-        }
-
-        h1{
-            color:#007bff;
-        }
-
-        .score {
-    font-size:28px;
-    color:green;
-}
-
-        pre{
-            white-space:pre-wrap;
-            background:#efefef;
-            padding:10px;
-            border-radius:5px;
-        }
-    </style>
-
+<link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
+<div class="header">
+    <h1>AI Resume Analayzer</h1>
+    <span class="badge">{{ filename }}</span>
+</div>
+
 <div class="container">
 
-<h1>AI Resume Analyzer</h1>
+<!-- HERO SCORE (IMPORTANT UPGRADE) -->
+<div class="card hero-card">
+    <div class="hero-left">
+        <h2>Resume Score</h2>
+        <div class="score">{{ score }}%</div>
+        <p class="status">{{ status }}</p>
 
-<p><b>File Name:</b> {{ filename }}</p>
+        <div class="bar">
+            <div class="fill" style="width: {{ score }}%;"></div>
+        </div>
+    </div>
 
-<h2 class="score">ATS Match Score: {{ score }}%</h2>
-<h3>{{ status }}</h3>
+    <div class="hero-right">
+        <p>AI Analysis Summary</p>
+        <ul>
+            <li>ATS Compatibility Check</li>
+            <li>Skill Matching Engine</li>
+            <li>Job Description Alignment</li>
+        </ul>
+    </div>
+</div>
 
-<hr>
+<!-- MAIN GRID -->
+<div class="grid">
 
-<h2>Missing Keywords</h2>
-{% if missing_keywords %}
-<ul>
-{% for word in missing_keywords %}
-    <li>{{ word }}</li>
-{% endfor %}
-</ul>
-{% else %}
-<p>No missing keywords</p>
-{% endif %}
-<hr>
+    <!-- RADAR -->
+    <div class="card">
+        <h2>Skills Coverage Map</h2>
+        <canvas id="radarChart"></canvas>
+    </div>
 
-<h2>Extracted Resume Text</h2>
+    <!-- MISSING -->
+    <div class="card">
+        <h2>Missing Keywords</h2>
 
-<pre>{{ resume_text }}</pre>
+        {% if missing_keywords %}
+        <ul>
+            {% for word in missing_keywords %}
+                <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>All important keywords present 🎉</p>
+        {% endif %}
+    </div>
 
-<hr>
+    <!-- AI INSIGHTS (PROMOTED CARD) -->
+    <div class="card highlight-card">
+        <h2>🧠 AI Career Intelligence</h2>
 
-<h2>Job Description</h2>
+        <p>✔ Strong Python foundation detected</p>
+        <p>⚠ Machine Learning gap identified</p>
+        <p>⚠ Backend framework experience is low</p>
+        <p>🚀 Recommendation: Build + deploy 2 real projects</p>
+    </div>
 
-<pre>{{ job_description }}</pre>
+    <!-- SUGGESTIONS -->
+    <div class="card">
+        <h2>AI Suggestions</h2>
 
-<h2>Suggestions</h2>
+        {% if suggestions %}
+        <ul>
+            {% for item in suggestions %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No suggestions available</p>
+        {% endif %}
+    </div>
 
-{% if suggestions %}
-<ul>
-{% for item in suggestions %}
-    <li>{{ item }}</li>
-{% endfor %}
-</ul>
-{% else %}
-<p>No suggestions available.</p>
-{% endif %}
+    <!-- RESUME -->
+    <div class="card">
+        <h2>Extracted Resume</h2>
+        <pre>{{ resume_text }}</pre>
+    </div>
+
+    <!-- JOB -->
+    <div class="card">
+        <h2>Job Description</h2>
+        <pre>{{ job_description }}</pre>
+    </div>
 
 </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
