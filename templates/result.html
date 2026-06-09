@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Result</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f5f5f5;
+            padding:40px;
+        }
+
+        .container{
+            max-width:900px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px lightgray;
+        }
+
+        h1{
+            color:#007bff;
+        }
+
+        .score {
+    font-size:28px;
+    color:green;
+}
+
+        pre{
+            white-space:pre-wrap;
+            background:#efefef;
+            padding:10px;
+            border-radius:5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Resume Analyzer</h1>
+
+<p><b>File Name:</b> {{ filename }}</p>
+
+<h2 class="score">ATS Match Score: {{ score }}%</h2>
+<h3>{{ status }}</h3>
+
+<hr>
+
+<h2>Missing Keywords</h2>
+{% if missing_keywords %}
+<ul>
+{% for word in missing_keywords %}
+    <li>{{ word }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No missing keywords</p>
+{% endif %}
+<hr>
+
+<h2>Extracted Resume Text</h2>
+
+<pre>{{ resume_text }}</pre>
+
+<hr>
+
+<h2>Job Description</h2>
+
+<pre>{{ job_description }}</pre>
+
+<h2>Suggestions</h2>
+
+{% if suggestions %}
+<ul>
+{% for item in suggestions %}
+    <li>{{ item }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No suggestions available.</p>
+{% endif %}
+
+</div>
+
+</body>
+</html>
