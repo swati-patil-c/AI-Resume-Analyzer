@@ -39,7 +39,11 @@ if (ctx) {
     });
 }
 
+<<<<<<< HEAD
 // ===== CHAT =====
+=======
+// ===== CHAT FUNCTIONS =====
+>>>>>>> f08a825 (clean project)
 function openChat() {
     document.getElementById("chatModal").style.display = "flex";
 }
@@ -48,11 +52,16 @@ function closeChat() {
     document.getElementById("chatModal").style.display = "none";
 }
 
+<<<<<<< HEAD
+=======
+// ===== SEND MESSAGE =====
+>>>>>>> f08a825 (clean project)
 async function sendMsg() {
     let input = document.getElementById("userInput");
     let chat = document.getElementById("chatWindow");
 
     let msg = input.value;
+<<<<<<< HEAD
     if (!msg) return;
 
     chat.innerHTML += `<div class="msg user">${msg}</div>`;
@@ -73,4 +82,63 @@ async function sendMsg() {
 
     chat.lastChild.remove();
     chat.innerHTML += `<div class="msg ai">${data.reply}</div>`;
+=======
+    if (!msg.trim()) return;
+
+    // USER MESSAGE (RIGHT SIDE)
+    chat.innerHTML += `
+        <div class="msg user">
+            <span>${msg}</span>
+        </div>
+    `;
+
+    input.value = "";
+
+    chat.scrollTo({ top: chat.scrollHeight, behavior: "smooth" });
+
+    // TYPING INDICATOR
+    chat.innerHTML += `
+        <div class="msg ai" id="typing">
+            <span>Typing...</span>
+        </div>
+    `;
+
+    chat.scrollTop = chat.scrollHeight;
+
+    try {
+        const res = await fetch("/chat", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                message: msg,
+                resume: document.body.innerText
+            })
+        });
+
+        const data = await res.json();
+
+        // REMOVE TYPING
+        const typing = document.getElementById("typing");
+        if (typing) typing.remove();
+
+        // AI MESSAGE (LEFT SIDE)
+        chat.innerHTML += `
+            <div class="msg ai">
+                <span>${data.reply}</span>
+            </div>
+        `;
+
+        chat.scrollTo({ top: chat.scrollHeight, behavior: "smooth" });
+
+    } catch (error) {
+        const typing = document.getElementById("typing");
+        if (typing) typing.remove();
+
+        chat.innerHTML += `
+            <div class="msg ai">
+                <span>Server error. Try again.</span>
+            </div>
+        `;
+    }
+>>>>>>> f08a825 (clean project)
 }

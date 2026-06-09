@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+/* ===== YOUR EXISTING CSS (UNCHANGED) ===== */
+
+>>>>>>> f08a825 (clean project)
 *{
     margin:0;
     padding:0;
@@ -60,16 +65,24 @@ body{
     background:#fff;
     border-radius:20px;
     padding:24px;
+<<<<<<< HEAD
     box-shadow:
         0 10px 30px rgba(0,0,0,0.05);
+=======
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+>>>>>>> f08a825 (clean project)
     border:1px solid #eef2f7;
     transition:all .3s ease;
 }
 
 .card:hover{
     transform:translateY(-4px);
+<<<<<<< HEAD
     box-shadow:
         0 20px 40px rgba(0,0,0,0.08);
+=======
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
+>>>>>>> f08a825 (clean project)
 }
 
 .card h3{
@@ -109,22 +122,30 @@ body{
 .fill{
     height:100%;
     border-radius:30px;
+<<<<<<< HEAD
     background:linear-gradient(
         90deg,
         #2563eb,
         #3b82f6
     );
+=======
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+>>>>>>> f08a825 (clean project)
 }
 
 /* ===== AI HIGHLIGHT ===== */
 
 .highlight{
+<<<<<<< HEAD
     background:
         linear-gradient(
             135deg,
             #2563eb,
             #1d4ed8
         );
+=======
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+>>>>>>> f08a825 (clean project)
     color:white;
 }
 
@@ -196,6 +217,7 @@ pre{
     height:65px;
     border:none;
     border-radius:50%;
+<<<<<<< HEAD
     background:linear-gradient(
         135deg,
         #2563eb,
@@ -206,6 +228,13 @@ pre{
     cursor:pointer;
     box-shadow:
         0 12px 30px rgba(37,99,235,.4);
+=======
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(37,99,235,.4);
+>>>>>>> f08a825 (clean project)
     transition:.3s;
 }
 
@@ -213,7 +242,11 @@ pre{
     transform:scale(1.08);
 }
 
+<<<<<<< HEAD
 /* ===== CHAT ===== */
+=======
+/* ===== CHAT MODAL ===== */
+>>>>>>> f08a825 (clean project)
 
 .chat-modal{
     display:none;
@@ -223,6 +256,10 @@ pre{
     backdrop-filter:blur(5px);
 }
 
+<<<<<<< HEAD
+=======
+/* CHAT BOX */
+>>>>>>> f08a825 (clean project)
 .chat-box{
     position:absolute;
     right:30px;
@@ -232,6 +269,7 @@ pre{
     background:white;
     border-radius:22px;
     overflow:hidden;
+<<<<<<< HEAD
     box-shadow:
         0 20px 60px rgba(0,0,0,.18);
 }
@@ -240,6 +278,18 @@ pre{
     background:#2563eb;
     color:white;
     padding:18px;
+=======
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+    display:flex;
+    flex-direction:column;
+}
+
+/* HEADER */
+.chat-header{
+    background:#2563eb;
+    color:white;
+    padding:16px;
+>>>>>>> f08a825 (clean project)
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -254,6 +304,7 @@ pre{
     font-size:18px;
 }
 
+<<<<<<< HEAD
 .chat-window{
     height:420px;
     overflow-y:auto;
@@ -263,12 +314,78 @@ pre{
 .chat-input{
     display:flex;
     border-top:1px solid #e5e7eb;
+=======
+/* CHAT WINDOW (IMPORTANT FIX) */
+.chat-window{
+    flex:1;
+    overflow-y:auto;
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    background:#f8fafc;
+}
+
+/* ===== WHATSAPP STYLE BUBBLES ===== */
+
+.msg{
+    display:flex;
+}
+
+.msg.user{
+    justify-content:flex-end;
+}
+
+.msg.ai{
+    justify-content:flex-start;
+}
+
+.msg span{
+    max-width:75%;
+    padding:10px 14px;
+    border-radius:18px;
+    font-size:14px;
+    line-height:1.4;
+    word-wrap:break-word;
+}
+
+/* USER (GREEN LIKE WHATSAPP) */
+.msg.user span{
+    background:#dcf8c6;
+    color:#111;
+    border-bottom-right-radius:4px;
+}
+
+/* AI (WHITE) */
+.msg.ai span{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    color:#111;
+    border-bottom-left-radius:4px;
+}
+
+/* TYPING TEXT */
+#typing span{
+    font-style:italic;
+    opacity:0.7;
+}
+
+/* INPUT AREA */
+.chat-input{
+    display:flex;
+    border-top:1px solid #e5e7eb;
+    background:white;
+>>>>>>> f08a825 (clean project)
 }
 
 .chat-input input{
     flex:1;
     border:none;
+<<<<<<< HEAD
     padding:16px;
+=======
+    padding:14px;
+>>>>>>> f08a825 (clean project)
     outline:none;
 }
 
@@ -295,6 +412,7 @@ pre{
 }
 
 @keyframes fadeIn{
+<<<<<<< HEAD
     from{
         opacity:0;
         transform:translateY(20px);
@@ -303,6 +421,10 @@ pre{
         opacity:1;
         transform:translateY(0);
     }
+=======
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+>>>>>>> f08a825 (clean project)
 }
 
 /* ===== MOBILE ===== */
